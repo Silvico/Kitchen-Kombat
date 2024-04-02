@@ -32,36 +32,31 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundPos.position, checkRadius, whatIsGround);
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Z))
+        if ((isGrounded || !doubleJump) && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
-            isJumping = true;
-        }
-
-        if (Input.GetKey(KeyCode.Z) && isJumping)
-        {
-            if (jumpTimeCounter > 0)
+            if (isGrounded)
             {
-                rb.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter -= Time.deltaTime;
+                doubleJump = true;
             }
-            else
-            {
-                isJumping = false;
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.Z))
-        {
-            isJumping = false;
-        }
-
-        if (!isGrounded && doubleJump && Input.GetKeyDown(KeyCode.Z))
-        {
-            isJumping = true;
-            doubleJump = true;
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
+        }
+
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            if (isJumping && jumpTimeCounter > 0)
+            {
+                anim.SetBool("isJumping", isJumping);
+                rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            isJumping = false;
+            anim.SetBool("isJumping", isJumping);
         }
 
         float moveInput = Input.GetAxisRaw("Horizontal");
@@ -76,6 +71,12 @@ public class PlayerController : MonoBehaviour
         else if (moveInput > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        // Check for right mouse button click
+        if (Input.GetMouseButtonDown(1))
+        {
+            anim.SetTrigger("abilityTrigger");
         }
     }
 }
