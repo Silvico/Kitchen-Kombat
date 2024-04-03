@@ -7,6 +7,7 @@ public class BananaAbility : MonoBehaviour
     public GameObject peelPrefab; // Reference to the peel game object prefab
     public Transform throwPoint; // position from where peel will be thrown
     public float throwForce = 10f;
+    public float rotationSpeed;
 
     private Animator anim;
     private bool hasThrownPeel = false; 
@@ -46,7 +47,12 @@ public class BananaAbility : MonoBehaviour
         // Calculate the direction to throw the peel (to the right?)
         Vector2 throwDirection = Vector2.right;
 
+        peelRb.angularVelocity = rotationSpeed;
         // Apply force to the peel in the calculated direction
         peelRb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
+
+         // Set an angular velocity to make the peel rotate
+        
+        
     }
 }
