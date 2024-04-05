@@ -10,7 +10,7 @@ public class BananaAbility : MonoBehaviour
     public float rotationSpeed;
 
     private Animator anim;
-    private bool hasThrownPeel = false; 
+    private bool hasThrownPeel = false;
 
     void Start()
     {
@@ -23,10 +23,8 @@ public class BananaAbility : MonoBehaviour
         // Check if the ability animation is playing and peel hasn't been thrown yet
         if (IsAbilityAnimationPlaying() && !hasThrownPeel)
         {
-            //TODO: maybe wait a few seconds for animation to play before throwing peel
-            
-            ThrowPeel();
-            hasThrownPeel = true; 
+            StartCoroutine(ThrowPeelAfterAnimation());
+            hasThrownPeel = true;
         }
     }
 
@@ -34,6 +32,15 @@ public class BananaAbility : MonoBehaviour
     {
         // Check if the ability animation state is playing
         return anim.GetCurrentAnimatorStateInfo(0).IsName("bability");
+    }
+
+    IEnumerator ThrowPeelAfterAnimation()
+    {
+        // Wait for the animation to complete
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+
+        // Throw the peel
+        ThrowPeel();
     }
 
     void ThrowPeel()
@@ -51,8 +58,6 @@ public class BananaAbility : MonoBehaviour
         // Apply force to the peel in the calculated direction
         peelRb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
 
-         // Set an angular velocity to make the peel rotate
-        
-        
+        // Set an angular velocity to make the peel rotate
     }
 }

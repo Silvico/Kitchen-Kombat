@@ -367,7 +367,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
-  jumpTime: 1
+  jumpTime: 0.5
 --- !u!4 &221247122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8387180254435912082, guid: db1ada1446f1e3b40baec9dc4080c36d, type: 3}
