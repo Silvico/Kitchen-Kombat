@@ -40,14 +40,17 @@ public class BananaAbility : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
 
         // Throw the peel
-        ThrowPeel();
+        GameObject peel = Instantiate(peelPrefab, throwPoint.position, Quaternion.identity);
+        ThrowPeel(peel); // Pass the instantiated peel to the ThrowPeel method
+        anim.SetBool("isNaked", true);
+
+        // Start coroutine to destroy peel after 5 seconds and reset isNaked
+        StartCoroutine(DestroyPeelAndReset(peel));
     }
 
-    void ThrowPeel()
-    {
-        // Instantiate the peel prefab at the throw point position
-        GameObject peel = Instantiate(peelPrefab, throwPoint.position, Quaternion.identity);
 
+    void ThrowPeel(GameObject peel)
+    {
         // Get the rigidbody component of the peel prefab
         Rigidbody2D peelRb = peel.GetComponent<Rigidbody2D>();
 
@@ -59,5 +62,14 @@ public class BananaAbility : MonoBehaviour
         peelRb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
 
         // Set an angular velocity to make the peel rotate
+    }
+
+    IEnumerator DestroyPeelAndReset(GameObject peel)
+    {
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(5f);
+        Destroy(peel);
+        anim.SetBool("isNaked", false);
+        hasThrownPeel = false;
     }
 }
