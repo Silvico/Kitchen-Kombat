@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
 
-    public Transform groundPos;
+    //public Transform groundPos;
+    public Vector2 groundCheckOffset; //checking for ground offset position
     private bool isGrounded;
     public float checkRadius;
     public LayerMask whatIsGround;
@@ -18,6 +20,11 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool doubleJump;
 
+    private Vector2 movementInput;
+    private float horizontalMovement;
+
+
+
     private Animator anim;
 
     // Start is called before the first frame update
@@ -25,12 +32,16 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        //myInputActionAsset.FindActionMap("Controls").Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundPos.position, checkRadius, whatIsGround);
+        
+
+        Vector2 groundCheckPos = rb.position + groundCheckOffset;
+        isGrounded = Physics2D.OverlapCircle(groundCheckPos, checkRadius, whatIsGround);
 
         if ((isGrounded || !doubleJump) && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
@@ -59,7 +70,8 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isJumping", isJumping);
         }
 
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        //float moveInput = Input.GetAxisRaw("Horizontal");
+        float moveInput = horizontalMovement;
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         anim.SetBool("isRunning", moveInput != 0);
@@ -79,4 +91,12 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("abilityTrigger");
         }
     }
+    public void onMove(InputAction.CallbackContext ctx)
+    {
+        Vector2 movement = ctx.ReadValue<Vector2>();
+        horizontalMovement = movement.x;
+        Debug.Log("Movement Input: " + horizontalMovement); 
+    }
 }
+
+
