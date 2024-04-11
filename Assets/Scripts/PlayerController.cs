@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        //myInputActionAsset.FindActionMap("Controls").Enable();
     }
 
     // Update is called once per frame
@@ -70,7 +69,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isJumping", isJumping);
         }
 
-        //float moveInput = Input.GetAxisRaw("Horizontal");
         float moveInput = horizontalMovement;
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
@@ -96,6 +94,18 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = ctx.ReadValue<Vector2>();
         horizontalMovement = movement.x;
         Debug.Log("Movement Input: " + horizontalMovement); 
+    }
+
+    public void onAbility(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            // Trigger the ability animation
+            anim.SetTrigger("abilityTrigger");
+
+            // Additional logic for the ability can be added here
+            // For example, casting a spell, shooting a weapon, etc.
+        }
     }
 }
 
