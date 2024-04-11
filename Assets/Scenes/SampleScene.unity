@@ -496,6 +496,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 888ac351-528c-453a-9128-292bfa65b022
     m_ActionName: Gameplay/Move[/DualShock4GamepadHID/leftStick/down,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e70e963-1e7c-4275-a7bc-11139cb1bb11
+    m_ActionName: Gameplay/Jump[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 57dd5bbf-e86b-44a0-960f-b9b5546c08c6
+    m_ActionName: Gameplay/Ability[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -2664,15 +2672,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822431845665704208, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822431845665704208, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822431845665704208, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.11950562
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822431845665704208, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
       propertyPath: m_LocalRotation.w
