@@ -96,17 +96,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Movement Input: " + horizontalMovement); 
     }
 
-    public void onAbility(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Started)
-        {
-            // Trigger the ability animation
-            anim.SetTrigger("abilityTrigger");
-
-            // Additional logic for the ability can be added here
-            // For example, casting a spell, shooting a weapon, etc.
-        }
-    }
+   
 }
 
 
