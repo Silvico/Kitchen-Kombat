@@ -50,7 +50,7 @@ public class Gas : MonoBehaviour
         // Get the initial scale of the gas object
         Vector3 initialScale = gasInstance.transform.localScale;
         // Define the target scale by multiplying the initial scale by 2
-        Vector3 targetScale = initialScale * 2f;
+        Vector3 targetScale = initialScale * 1.5f;
 
         float elapsedTime = 0f;
         float expandDuration = 2f; // Duration for the gas to expand
