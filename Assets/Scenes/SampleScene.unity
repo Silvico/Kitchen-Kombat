@@ -373,7 +373,7 @@ MonoBehaviour:
   inputManager: {fileID: 175382068}
   playerA: {fileID: 0}
   playerB: {fileID: 0}
-  playerPrefabB: {fileID: 3455449151452789972, guid: d0da40cf6bbfc3a4da85e212f5c6cae3, type: 3}
+  playerPrefabB: {fileID: 5565287587629187415, guid: ac582eccc8fac1e4590c4bcb623627bd, type: 3}
 --- !u!70 &221247114
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
