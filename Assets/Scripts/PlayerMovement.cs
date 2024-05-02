@@ -7,45 +7,42 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float moveSpeed = 5f;
-
     public float jumpForce;
     public float speed;
-
-    //public Transform groundPos;
     public Vector2 groundCheckOffset; //checking for ground offset position
     private bool isGrounded;
     public float checkRadius;
     public LayerMask whatIsGround;
 
-    private float jumpTimeCounter;
-    public float jumpTime;
-    private bool isJumping;
-    private bool doubleJump;
-
-    private Vector2 movementInput;
-    private float horizontalMovement;
-
-
+    private int jumpCount = 0;
 
     private Animator anim;
+    private float horizontalMovement;
 
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Check if the player is grounded
         Vector2 groundCheckPos = rb.position + groundCheckOffset;
         isGrounded = Physics2D.OverlapCircle(groundCheckPos, checkRadius, whatIsGround);
 
+        // Reset jump count if grounded
+        if (isGrounded && rb.velocity.y <= 0) 
+        {
+            jumpCount = 0;
+            anim.SetBool("isJumping", false);
+        }
+
+        // Apply horizontal movement
         rb.velocity = new Vector2(horizontalMovement * speed, rb.velocity.y);
         anim.SetBool("isRunning", horizontalMovement != 0);
 
+        // Handle sprite flipping
         if (horizontalMovement < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
@@ -63,23 +60,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && (isGrounded || !doubleJump))
+        // Only jump if the jump button is pressed, we're either grounded or have only jumped once
+        if (context.phase == InputActionPhase.Started && jumpCount < 2)
         {
-            if (isGrounded)
-            {
-                doubleJump = true;
-            }
-
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
-            anim.SetBool("isJumping", isJumping);
-        }
-
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            isJumping = false;
-            anim.SetBool("isJumping", isJumping);
+            jumpCount++;
+            anim.SetBool("isJumping", true);
         }
     }
 
@@ -87,12 +73,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            // Trigger the ability animation
             anim.SetTrigger("abilityTrigger");
-
-            // Additional logic for the ability can be added here
-            // For example, casting a spell, shooting a weapon, etc.
         }
     }
 }
-
