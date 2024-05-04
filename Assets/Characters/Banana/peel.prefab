@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6674867786006127414}
   - component: {fileID: 1642782051320761306}
   - component: {fileID: 469290605904880281}
+  - component: {fileID: 8608154786539205264}
   m_Layer: 0
   m_Name: peel
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6674867786006127414
 SpriteRenderer:
@@ -142,9 +143,22 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.08255878, y: -0.019300506}
   m_Size: {x: 1.2153033, y: 5.126124}
   m_Direction: 0
+--- !u!114 &8608154786539205264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97822178370304931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f54e760e876df409805dde4359eaa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

@@ -57,12 +57,12 @@ public class BananaAbility : MonoBehaviour
         // Use the last recorded movement direction to determine throw direction
         Vector2 throwDirection = lastMovementDirection;
 
-        // Optional: Use a raycast to detect obstacles
-        RaycastHit2D hit = Physics2D.Raycast(throwPoint.position, throwDirection, 5.0f);
-        if (hit.collider != null)
-        {
-            Debug.Log("Obstacle detected: " + hit.collider.name);
-        }
+  
+        //RaycastHit2D hit = Physics2D.Raycast(throwPoint.position, throwDirection, 5.0f);
+        //if (hit.collider != null)
+        //{
+        //    Debug.Log("Obstacle detected: " + hit.collider.name);
+        //}
 
         peelRb.angularVelocity = rotationSpeed;
         peelRb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
