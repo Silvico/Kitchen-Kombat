@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheckPos, checkRadius, whatIsGround);
 
         // Reset jump count if grounded
-        if (isGrounded && rb.velocity.y <= 0) 
+        if (isGrounded && rb.velocity.y <= 0)
         {
             jumpCount = 0;
             anim.SetBool("isJumping", false);
@@ -71,7 +71,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void onAbility(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        // Check the phase of the input and if the character is not naked
+        if (context.phase == InputActionPhase.Started && !anim.GetBool("isNaked"))
         {
             anim.SetTrigger("abilityTrigger");
         }

@@ -12,7 +12,7 @@ public class BananaAbility : MonoBehaviour
     private Animator anim;
     private bool hasThrownPeel = false;
     private Rigidbody2D rb;
-    private Vector2 lastMovementDirection = Vector2.right; 
+    private Vector2 lastMovementDirection = Vector2.right;
 
     void Start()
     {
@@ -28,7 +28,8 @@ public class BananaAbility : MonoBehaviour
             lastMovementDirection = new Vector2(Mathf.Sign(rb.velocity.x), 0);
         }
 
-        if (IsAbilityAnimationPlaying() && !hasThrownPeel)
+        // Check if the ability animation is playing and the peel hasn't been thrown yet
+        if (IsAbilityAnimationPlaying() && !hasThrownPeel && !anim.GetBool("isNaked"))
         {
             StartCoroutine(ThrowPeelAfterAnimation());
             hasThrownPeel = true;
@@ -57,7 +58,7 @@ public class BananaAbility : MonoBehaviour
         // Use the last recorded movement direction to determine throw direction
         Vector2 throwDirection = lastMovementDirection;
 
-  
+
         //RaycastHit2D hit = Physics2D.Raycast(throwPoint.position, throwDirection, 5.0f);
         //if (hit.collider != null)
         //{
@@ -73,6 +74,9 @@ public class BananaAbility : MonoBehaviour
         yield return new WaitForSeconds(5f);
         Destroy(peel);
         anim.SetBool("isNaked", false);
-        hasThrownPeel = false;
+        if (!IsAbilityAnimationPlaying()) // Ensure the ability animation isn't playing
+        {
+            hasThrownPeel = false;
+        }
     }
 }
