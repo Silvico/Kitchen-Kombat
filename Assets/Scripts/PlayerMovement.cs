@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheckPos, checkRadius, whatIsGround);
 
         // Reset jump count if grounded
-        if (isGrounded && rb.velocity.y <= 0)
+        if (isGrounded || rb.velocity.y <= 0)
         {
             jumpCount = 0;
             anim.SetBool("isJumping", false);
