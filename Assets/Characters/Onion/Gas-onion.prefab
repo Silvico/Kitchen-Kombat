@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 2222620490629101086}
   - component: {fileID: 4400318035168415155}
   - component: {fileID: 2805004776267297348}
+  - component: {fileID: 6602217671153290548}
   m_Layer: 0
   m_Name: Gas-onion
   m_TagString: Untagged
@@ -269,6 +270,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6602217671153290548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823814060888433700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b6fd4004593f44792137430ba89372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6001893040335426590
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onionv2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5767662801799595668, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6754712861371402867, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -88,6 +92,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5767662801799595668, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7341748842073649002}
+    - targetCorrespondingSourceObject: {fileID: 5767662801799595668, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5838892546897027507}
   m_SourcePrefab: {fileID: 100100000, guid: 667a4fff08c3dcd438c6c901b7ad3e24, type: 3}
 --- !u!1 &5646077557466640244 stripped
 GameObject:
@@ -139,3 +146,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5473318, y: 4.439918}
   m_EdgeRadius: 0
+--- !u!114 &5838892546897027507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646077557466640244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f12a13d8c223754d8abf0faefdd6573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gasPrefab: {fileID: 5823814060888433700, guid: d2caccae971aa5043b2a980eecd0b322, type: 3}
