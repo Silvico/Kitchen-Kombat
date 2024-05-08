@@ -29,9 +29,12 @@ public class WinnerScene : MonoBehaviour
     // Initializes the dictionary mapping string IDs to prefabs
     private void InitializePrefabDictionary()
     {
-        prefabDictionary.Add("bananaaa", winnerPrefabs[0]); 
-        prefabDictionary.Add("onionnn", winnerPrefabs[1]);
-        prefabDictionary.Add("watermelon", winnerPrefabs[2]);
+        if (winnerPrefabs.Length > 0 && winnerPrefabs[0] != null)
+            prefabDictionary.Add("bananaaa", winnerPrefabs[0]);
+        if (winnerPrefabs.Length > 1 && winnerPrefabs[1] != null)
+            prefabDictionary.Add("onionnn", winnerPrefabs[1]);
+        if (winnerPrefabs.Length > 2 && winnerPrefabs[2] != null)
+            prefabDictionary.Add("watermelon", winnerPrefabs[2]);
     }
 
     private void InstantiateWinner(string id)
