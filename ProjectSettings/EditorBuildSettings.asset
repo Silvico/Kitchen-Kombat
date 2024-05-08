@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterSelect2_v2.unity
     guid: b4cc54fe1cc75e240905b1227bb70363
+  - enabled: 1
+    path: Assets/Scenes/Winner.unity
+    guid: 15c99c83d3725be45a6b6651f20a501e
   m_configObjects: {}

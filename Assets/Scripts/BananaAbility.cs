@@ -46,10 +46,22 @@ public class BananaAbility : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
 
         GameObject peel = Instantiate(peelPrefab, throwPoint.position, Quaternion.identity);
+        PeelHit peelScript = peel.GetComponent<PeelHit>();
+
+        if (peelScript != null)
+        {
+            peelScript.owner = this.gameObject;  // Set the owner of the peel to this BananaAbility's GameObject
+        }
+        else
+        {
+            Debug.LogError("PeelHit script not found on the instantiated peel prefab!");
+        }
+
         ThrowPeel(peel);
         anim.SetBool("isNaked", true);
         StartCoroutine(DestroyPeelAndReset(peel));
     }
+
 
     void ThrowPeel(GameObject peel)
     {

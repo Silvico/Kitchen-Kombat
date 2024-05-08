@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6593693836945179682}
   - component: {fileID: 1936362423289039461}
+  - component: {fileID: 6798375286316484802}
   m_Layer: 0
   m_Name: Collider (1)
   m_TagString: Untagged
@@ -61,7 +62,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.14290214, y: 2.4617884}
@@ -77,6 +78,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.6343894, y: 0.33315897}
   m_EdgeRadius: 0
+--- !u!114 &6798375286316484802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037547531885765406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b6fd4004593f44792137430ba89372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 5646077557466640244, guid: bc3d2a0844ef77d45bf14bce4581536b, type: 3}
+  damage: 20
 --- !u!1 &3403957688566072299
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8687715245846052101}
   - component: {fileID: 2884926738031799497}
+  - component: {fileID: 5703327468503878368}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -138,7 +154,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -2.4539113, y: 0.20558667}
@@ -154,6 +170,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5038283, y: 3.9173732}
   m_EdgeRadius: 0
+--- !u!114 &5703327468503878368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403957688566072299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b6fd4004593f44792137430ba89372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 5646077557466640244, guid: bc3d2a0844ef77d45bf14bce4581536b, type: 3}
+  damage: 20
 --- !u!1 &5823814060888433700
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +195,6 @@ GameObject:
   - component: {fileID: 2222620490629101086}
   - component: {fileID: 4400318035168415155}
   - component: {fileID: 2805004776267297348}
-  - component: {fileID: 6602217671153290548}
   m_Layer: 0
   m_Name: Gas-onion
   m_TagString: Untagged
@@ -181,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5823814060888433700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0552063, y: 0.033557296, z: 0}
+  m_LocalPosition: {x: 0.0552063, y: 0.033557296, z: 0.1195056}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -270,19 +299,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6602217671153290548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5823814060888433700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b6fd4004593f44792137430ba89372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialDamage: 10
 --- !u!1 &6001893040335426590
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1610974762357397718}
   - component: {fileID: 3255401573560865925}
+  - component: {fileID: 8383825961074852068}
   m_Layer: 0
   m_Name: Collider (2)
   m_TagString: Untagged
@@ -344,7 +361,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 2.5250607, y: 0.20558667}
@@ -360,3 +377,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5997617, y: 3.9173732}
   m_EdgeRadius: 0
+--- !u!114 &8383825961074852068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001893040335426590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b6fd4004593f44792137430ba89372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 5646077557466640244, guid: bc3d2a0844ef77d45bf14bce4581536b, type: 3}
+  damage: 20

@@ -19,16 +19,19 @@ public class Gas : MonoBehaviour
 
     void Update()
     {
-        // Check if the ability animation state is playing and gas hasn't been spawned yet and not in cooldown
         if (IsAbilityAnimationPlaying() && !gasSpawned && !cooldown)
         {
-            // Spawn a gas object at the same position as the onion
             gasInstance = Instantiate(gasPrefab, transform.position, Quaternion.identity);
-            // Parent the gas instance to the onion
-            gasInstance.transform.parent = transform;
-            // Start expanding coroutine
+            gasInstance.transform.parent = transform;  // Parent the gas instance to the onion
+
+            // Set the owner of the gas to this GameObject (the onion)
+            GasHit gasHitScript = gasInstance.GetComponent<GasHit>();
+            if (gasHitScript != null)
+            {
+                gasHitScript.owner = this.gameObject;  // Pass the onion as the owner
+            }
+
             StartCoroutine(ExpandGas());
-            // Start cooldown
             StartCoroutine(GasCooldown());
         }
     }
