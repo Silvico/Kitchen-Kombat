@@ -31,6 +31,7 @@ public class WinnerScene : MonoBehaviour
     {
         prefabDictionary.Add("bananaaa", winnerPrefabs[0]); 
         prefabDictionary.Add("onionnn", winnerPrefabs[1]);
+        prefabDictionary.Add("watermelon", winnerPrefabs[2]);
     }
 
     private void InstantiateWinner(string id)
