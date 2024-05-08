@@ -241,6 +241,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4444422506184947224, guid: d05d1d22da80a6149a518b8bede899c6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3181931265284077209}
+    - targetCorrespondingSourceObject: {fileID: 4444422506184947224, guid: d05d1d22da80a6149a518b8bede899c6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6108935318158295649}
   m_SourcePrefab: {fileID: 100100000, guid: d05d1d22da80a6149a518b8bede899c6, type: 3}
 --- !u!1 &4460655720163244315 stripped
 GameObject:
@@ -439,6 +442,22 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-6108935318158295649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460655720163244315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781d81b21f5ae484d83f164949ef9c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peelPrefab: {fileID: 272917117661715221, guid: 306ace72bad8685409f48106cc6bcca8, type: 3}
+  throwPoint: {fileID: 0}
+  throwForce: 10
+  rotationSpeed: 200
 --- !u!4 &7594534309174726569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7579444587314479274, guid: d05d1d22da80a6149a518b8bede899c6, type: 3}

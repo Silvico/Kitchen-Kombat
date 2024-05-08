@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  owner: {fileID: 3389860116635149028, guid: 5c77808f2a4e01c44921ea5969cea83c, type: 3}
+  owner: {fileID: 4460655720163244315, guid: 4659eed166aabc24498c3ec816983d23, type: 3}
