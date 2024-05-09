@@ -740,6 +740,7 @@ MonoBehaviour:
   initialCharacters:
   - {fileID: -481731920, guid: 1cd9b01ab2f2ff547b8305ac3f049798, type: 3}
   - {fileID: -244153346, guid: 1731cb4cc16a067488cee31061710693, type: 3}
+  - {fileID: 1129362744, guid: 975b9cccaf7fa19409073f23f91a8f6f, type: 3}
   playerIndex: 0
 --- !u!4 &1014243780
 Transform:
@@ -1400,6 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedCharacters:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   availableCharacters: []

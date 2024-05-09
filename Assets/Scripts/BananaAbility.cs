@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BananaAbility : MonoBehaviour
 {
+    [SerializeField] private AudioClip peelSound;
     public GameObject peelPrefab;
     public Transform throwPoint;
     public float throwForce = 10f;
@@ -12,12 +13,14 @@ public class BananaAbility : MonoBehaviour
     private Animator anim;
     private bool hasThrownPeel = false;
     private Rigidbody2D rb;
+    private AudioSource audioSource; // Declare the AudioSource here
     private Vector2 lastMovementDirection = Vector2.right;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>(); // Assume a Rigidbody2D is attached for movement tracking
+        audioSource = GetComponent<AudioSource>(); // Properly assign the AudioSource
     }
 
     void Update()
@@ -62,23 +65,14 @@ public class BananaAbility : MonoBehaviour
         StartCoroutine(DestroyPeelAndReset(peel));
     }
 
-
     void ThrowPeel(GameObject peel)
     {
         Rigidbody2D peelRb = peel.GetComponent<Rigidbody2D>();
-
-        // Use the last recorded movement direction to determine throw direction
         Vector2 throwDirection = lastMovementDirection;
-
-
-        //RaycastHit2D hit = Physics2D.Raycast(throwPoint.position, throwDirection, 5.0f);
-        //if (hit.collider != null)
-        //{
-        //    Debug.Log("Obstacle detected: " + hit.collider.name);
-        //}
 
         peelRb.angularVelocity = rotationSpeed;
         peelRb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
+        audioSource.PlayOneShot(peelSound);  // Use PlayOneShot to play the sound
     }
 
     IEnumerator DestroyPeelAndReset(GameObject peel)
